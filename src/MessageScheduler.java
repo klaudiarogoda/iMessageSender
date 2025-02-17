@@ -17,14 +17,15 @@ public class MessageScheduler {
     public void scheduleMessage(){
         ScheduledExecutorService scheduler= Executors.newSingleThreadScheduledExecutor();
         long delay=calculateDelay(8);
-        int randomNumber=(int) (Math.random() * messages.length);
-        String todaysMessage=messages[randomNumber];
-        System.out.println("Today's message: "+todaysMessage);
+
         scheduler.scheduleAtFixedRate(()->{
             if(daysSent>=3) {
                 stopScheduler(scheduler);
                 return;
             }
+            int randomNumber=(int) (Math.random() * messages.length);
+            String todaysMessage=messages[randomNumber];
+            System.out.println("Today's message: " + todaysMessage);
             messageService.sendMessage(todaysMessage);
             daysSent++;
         },delay, TimeUnit.DAYS.toMillis(1),TimeUnit.MILLISECONDS);

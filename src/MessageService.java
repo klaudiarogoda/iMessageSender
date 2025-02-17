@@ -4,7 +4,9 @@ public class MessageService {
     public void sendMessage(String message){
         try{
             //AppleScript
-            String script = "tell application \"Messages\"\n" + "set targetBuddy to \"myBuddy\"\n" +
+
+            String script = "tell application \"Messages\"\n" +
+                    "set targetBuddy to \"my Buddy\"\n" +
                     "send \"" + message + "\" to buddy targetBuddy\n" +
                     "end tell";
 
