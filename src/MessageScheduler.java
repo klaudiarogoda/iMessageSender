@@ -7,6 +7,7 @@ public class MessageScheduler {
     private MessageService messageService;
     private String [] messages;
     int daysSent;
+    private ScheduledExecutorService scheduler;
 
 
     public MessageScheduler(MessageService messageService, String[] messages){
@@ -15,8 +16,8 @@ public class MessageScheduler {
     }
 
     public void scheduleMessage(){
-        ScheduledExecutorService scheduler= Executors.newSingleThreadScheduledExecutor();
-        long delay=calculateDelay(8);
+        scheduler= Executors.newSingleThreadScheduledExecutor();
+        long delay=calculateDelay(20);
 
         scheduler.scheduleAtFixedRate(()->{
             if(daysSent>=3) {
@@ -43,6 +44,11 @@ public class MessageScheduler {
             targetTime.add(Calendar.DATE, 1);
         }
         long delay=targetTime.getTimeInMillis()-currentTime.getTimeInMillis();
+
+        System.out.println("Current time: " + currentTime.getTime());
+        System.out.println("Target time: " + targetTime.getTime());
+        System.out.println("Calculated delay: " + delay);
+
         return delay;
     }
 

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="junixsocket-core">
+    <CLASSES>
+      <root url="jar://$APPLICATION_HOME_DIR$/lib/junixsocket-core.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

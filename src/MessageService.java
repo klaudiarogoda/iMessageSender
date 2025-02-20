@@ -6,7 +6,7 @@ public class MessageService {
             //AppleScript
 
             String script = "tell application \"Messages\"\n" +
-                    "set targetBuddy to \"my Buddy\"\n" +
+                    "set targetBuddy to \"myBuddy\"\n" +
                     "send \"" + message + "\" to buddy targetBuddy\n" +
                     "end tell";
 
